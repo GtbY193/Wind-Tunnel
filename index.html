@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Wind Tunnel Designer</title>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="brand">
+      <div class="logo">WT</div>
+      <h1>Wind Tunnel Designer</h1>
+    </div>
+
+    <span>Protótipo de aerodinâmica 2D</span>
+  </header>
+
+
+  <div class="layout">
+
+    <!-- PAINEL DE CONTROLE -->
+    <aside class="sidebar">
+
+      <h2>Desenho</h2>
+
+      <div class="tools">
+        <button id="drawBtn" class="primary">
+          ✏️ Desenhar
+        </button>
+
+        <button id="eraseBtn">
+          ⌫ Apagar
+        </button>
+      </div>
+
+      <button id="clearBtn" class="danger full">
+        Limpar desenho
+      </button>
+
+
+      <h2>Túnel de vento</h2>
+
+      <label>
+        Velocidade
+        <b id="speedValue">40 km/h</b>
+      </label>
+
+      <input
+        id="speed"
+        type="range"
+        min="5"
+        max="120"
+        value="40"
+      >
+
+
+      <label>
+        Partículas
+        <b id="particleValue">180</b>
+      </label>
+
+      <input
+        id="particles"
+        type="range"
+        min="40"
+        max="500"
+        value="180"
+      >
+
+
+      <label>
+        Turbulência
+        <b id="turbValue">25%</b>
+      </label>
+
+      <input
+        id="turb"
+        type="range"
+        min="0"
+        max="100"
+        value="25"
+      >
+
+
+      <button id="runBtn" class="primary full run">
+        ▶ Iniciar túnel
+      </button>
+
+
+      <p class="help">
+        Desenhe uma forma dentro do túnel usando o mouse
+        ou toque na tela. As partículas representam o fluxo
+        de ar ao redor do objeto.
+      </p>
+
+    </aside>
+
+
+    <!-- ÁREA PRINCIPAL -->
+    <main>
+
+      <section class="panel">
+
+        <canvas id="canvas"></canvas>
+
+
+        <div class="toolbar">
+
+          <button id="exampleBtn">
+            Exemplo: aerofólio
+          </button>
+
+          <button id="saveBtn">
+            Exportar PNG
+          </button>
+
+        </div>
+
+
+        <div id="status" class="status">
+          Desenho livre • túnel parado
+        </div>
+
+      </section>
+
+
+      <!-- MÉTRICAS -->
+      <section class="panel bottom">
+
+        <div class="metric">
+          <span>Velocidade</span>
+
+          <strong id="mSpeed">
+            40 km/h
+          </strong>
+
+          <small>
+            velocidade configurada
+          </small>
+        </div>
+
+
+        <div class="metric">
+          <span>Arrasto estimado</span>
+
+          <strong id="drag">
+            0.32
+          </strong>
+
+          <small>
+            índice relativo
+          </small>
+        </div>
+
+
+        <div class="metric">
+          <span>Fluxo</span>
+
+          <strong id="flow">
+            Laminar
+          </strong>
+
+          <small>
+            classificação visual
+          </small>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <script src="js/app.js"></script>
+
+</body>
+</html>
